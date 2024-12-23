@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { RegisterComponent } from './pages/register/register.component';
 import { ErrorComponent } from './components/error/error.component';
 import { RatingModule } from 'primeng/rating';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -21,7 +20,6 @@ import { TableModule } from 'primeng/table';
         AppComponent,
         HeaderComponent,
         FooterComponent,
-        RegisterComponent,
         ErrorComponent,
         ModalComponent,
     ],
