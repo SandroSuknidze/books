@@ -1,0 +1,28 @@
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+h2.check {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 15px 0;
+}
+
+h2.check:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+h2.check:active {
+    transform: scale(0.98);
+}
+
+h2.check:focus {
+    outline: none;
+    box-shadow: 0 0 5px 2px rgba(0, 123, 255, 0.6);
+}

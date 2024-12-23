@@ -53,6 +53,6 @@ export class TableComponent implements OnInit {
   }
 
   reloadBooks(): void {
-    this.loadBooks();  // Refetch books when called
+    this.loadBooks();
   }
 }

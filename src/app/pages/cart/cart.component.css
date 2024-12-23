@@ -1,0 +1,96 @@
+/* Style for the cart container */
+.cart-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Username input field styling */
+.username-container {
+  margin-bottom: 20px;
+}
+
+.username-input {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  width: 300px;
+  max-width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.username-input:focus {
+  border-color: #2196f3;
+  outline: none;
+}
+
+/* Style for the total price section */
+.total-price {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Container for buttons */
+.action-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+/* Base button styling */
+.btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Button for "Increase" */
+.btn-increase {
+  background-color: #4caf50;
+  color: white;
+}
+
+.btn-increase:hover {
+  background-color: #45a049;
+}
+
+/* Button for "Order" */
+.btn-order {
+  background-color: #2196f3;
+  color: white;
+}
+
+.btn-order[disabled] {
+  background-color: #90caf9;
+  cursor: not-allowed;
+}
+
+.btn-order:hover:not([disabled]) {
+  background-color: #1e88e5;
+  cursor: pointer;
+}
+
+/* Button for "Cancel" */
+.btn-cancel {
+  background-color: #f44336;
+  color: white;
+}
+
+.btn-cancel:hover {
+  background-color: #e53935;
+}
+
+  .hi {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 300px;
+    gap: 20px;
+}
+

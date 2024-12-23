@@ -1,9 +1,6 @@
-import { Component, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { BookService } from '../../services/book.service';
 import { Book } from '../../models/Book';
-import { Table } from 'primeng/table';
-import { Subject } from 'rxjs';
-import { debounceTime, switchMap } from 'rxjs/operators';
 import { TableComponent } from '../../components/table/table.component';
 
 @Component({

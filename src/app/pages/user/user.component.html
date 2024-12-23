@@ -1,1 +1,19 @@
-<p>user works!</p>
+
+<section class="total-books">
+    <p>Total books in cart: {{ totalBooksInCart }}</p>
+  </section>
+
+<section class="book-list">
+    <div *ngFor="let cartItem of cartWithBooks" class="book-card">
+      <h3>{{ cartItem.title }}</h3>
+      <p>{{ cartItem.author }}</p>
+      <p>Price: {{ cartItem.price | currency }}</p>
+      <p>Available: {{ cartItem.stockQuantity }}</p>
+  
+      <div class="counter">
+        <button (click)="decrementQuantity(cartItem)" [disabled]="selectedQuantities[cartItem.bookId] <= 0">-</button>
+        <input type="number" [value]="selectedQuantities[cartItem.bookId]" disabled />
+        <button (click)="incrementQuantity(cartItem)" [disabled]="selectedQuantities[cartItem.bookId] >= cartItem.stockQuantity">+</button>
+      </div>
+    </div>
+</section>
