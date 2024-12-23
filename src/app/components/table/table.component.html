@@ -1,0 +1,66 @@
+<section>
+    <p-table
+      #dt
+      [value]="books"
+      [tableStyle]="{ 'min-width': '50rem' }"
+      [paginator]="true"
+      [rows]="5"
+      [rowsPerPageOptions]="[5, 10, 20]"
+    >
+      <ng-template pTemplate="header">
+        <tr>
+          <th>
+            <input
+              pInputText
+              type="text"
+              [(ngModel)]="title"
+              (input)="onSearch()"
+              placeholder="Search by Title"
+            />
+          </th>
+          <th>
+            <input
+              pInputText
+              type="text"
+              [(ngModel)]="author"
+              (input)="onSearch()"
+              placeholder="Search by Author"
+            />
+          </th>
+          <th>
+            <input
+              pInputText
+              type="number"
+              [(ngModel)]="price"
+              (input)="onSearch()"
+              placeholder="Search by Price"
+            />
+          </th>
+          <th>
+            <input
+              pInputText
+              type="number"
+              [(ngModel)]="quantity"
+              (input)="onSearch()"
+              placeholder="Search by Quantity"
+            />
+          </th>
+        </tr>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Price</th>
+          <th>Quantity</th>
+        </tr>
+      </ng-template>
+
+      <ng-template pTemplate="body" let-book>
+        <tr>
+          <td>{{ book.title }}</td>
+          <td>{{ book.author }}</td>
+          <td>{{ book.price }}</td>
+          <td>{{ book.quantity }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </section>

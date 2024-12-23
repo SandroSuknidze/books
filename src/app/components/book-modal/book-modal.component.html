@@ -1,0 +1,61 @@
+<div class="modal" >
+    <div class="modal-content">
+      <h2>Add New Book</h2>
+  
+      <div class="p-field">
+        <label for="title">Title</label>
+        <input
+          id="title"
+          pInputText
+          [(ngModel)]="modalTitle"
+          placeholder="Book Title"
+        />
+      </div>
+  
+      <div class="p-field">
+        <label for="author">Author</label>
+        <input
+          id="author"
+          pInputText
+          [(ngModel)]="modalAuthor"
+          placeholder="Book Author"
+        />
+      </div>
+  
+      <div class="p-field">
+        <label for="price">Price</label>
+        <input
+          id="price"
+          pInputText
+          type="number"
+          [(ngModel)]="modalPrice"
+          placeholder="Book Price"
+        />
+      </div>
+  
+      <div class="p-field">
+        <label for="quantity">Quantity</label>
+        <div class="quantity-controls">
+          <button type="button"  (click)="decrementQuantity()">-</button>
+          <input
+            id="quantity"
+            type="number"
+            [(ngModel)]="modalQuantity"
+            [disabled]="true"
+          />
+          <button type="button"  (click)="incrementQuantity()">+</button>
+        </div>
+      </div>
+  
+      <div>
+        <button
+          label="Save"
+          icon="pi pi-check"
+          (click)="onSave()"
+          [disabled]="!modalTitle || !modalAuthor || modalPrice <= 0 || modalQuantity <= 0"
+        >Save</button>
+        <button label="Cancel"  (click)="onCancel()">Cancel</button>
+      </div>
+    </div>
+  </div>
+  

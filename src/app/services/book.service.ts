@@ -26,4 +26,9 @@ export class BookService {
     return this.apiService.get<Book[]>('Books/filtered', { params });
   }
 
+  addBook(book: Book): Observable<Book> {
+    return this.apiService.post<Book>('Books', book);
+  }
+
+
 }

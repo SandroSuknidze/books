@@ -4,53 +4,37 @@ import { Book } from '../../models/Book';
 import { Table } from 'primeng/table';
 import { Subject } from 'rxjs';
 import { debounceTime, switchMap } from 'rxjs/operators';
+import { TableComponent } from '../../components/table/table.component';
 
 @Component({
   selector: 'app-manager',
   templateUrl: './manager.component.html',
   styleUrls: ['./manager.component.css']
 })
-export class ManagerComponent implements OnInit {
-  @ViewChild('dt') dt!: Table;
-  books: Book[] = [];
-  title: string | null = null;
-  author: string | null = null;
-  price: number | null = null;
-  quantity: number | null = null;
-  private searchSubject = new Subject<void>();
+export class ManagerComponent {
+  @ViewChild(TableComponent) tableComponent!: TableComponent;
+
+  showModal: boolean = false;
 
   constructor(private bookService: BookService) {}
 
-  ngOnInit(): void {
-    this.loadBooks(); // Initial load of all books
+  openModal(): void {
+    this.showModal = true;
+  }
 
-    // Handle search with debounce and pagination
-    this.searchSubject.pipe(
-      debounceTime(300), // Wait for 300ms after the user stops typing
-      switchMap(() => this.bookService.getFilteredBooks(this.title, this.author, this.price, this.quantity)) // Call API with search parameters
-    ).subscribe({
-      next: (data) => {
-        this.books = data; // Update the book list
+  onSave(newBook: Book): void {
+    this.bookService.addBook(newBook).subscribe({
+      next: () => {
+        this.showModal = false;
+        this.tableComponent.reloadBooks();
       },
       error: (err) => {
-        console.error('Error fetching books:', err);
+        console.error('Error adding book:', err);
       }
     });
   }
 
-  loadBooks(): void {
-    this.bookService.getBooks().subscribe({
-      next: (data) => {
-        this.books = data; // Initial book list loading
-      },
-      error: (err) => {
-        console.error('Error fetching books:', err);
-      }
-    });
-  }
-
-  onSearch(): void {
-    // Trigger the search when any search field changes
-    this.searchSubject.next();
+  onCancel(): void {
+    this.showModal = false;
   }
 }
