@@ -1,24 +1,4 @@
-<p>manager works!</p>
 <section>
-    <!-- <p-table [value]="books" [tableStyle]="{ 'min-width': '50rem' }">
-        <ng-template pTemplate="header">
-            <tr>
-                <th>title</th>
-                <th>author</th>
-                <th>price</th>
-                <th>quantity</th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-product>
-            <tr>
-                <td>{{ product.title  }}</td>
-                <td>{{ product.author  }}</td>
-                <td>{{ product.price  }}</td>
-                <td>{{ product.quantity }}</td>
-            </tr>
-        </ng-template>
-    </p-table> -->
-
     <p>manager works!</p>
     <section>
       <p-table
@@ -29,14 +9,14 @@
         [rows]="5"
         [rowsPerPageOptions]="[5, 10, 20]"
       >
-        <!-- Header with Search Boxes Above Each Column -->
         <ng-template pTemplate="header">
           <tr>
             <th>
               <input
                 pInputText
                 type="text"
-                (input)="onSearch($event, 'title')"
+                [(ngModel)]="title"
+                (input)="onSearch()"
                 placeholder="Search by Title"
               />
             </th>
@@ -44,23 +24,26 @@
               <input
                 pInputText
                 type="text"
-                (input)="onSearch($event, 'author')"
+                [(ngModel)]="author"
+                (input)="onSearch()"
                 placeholder="Search by Author"
               />
             </th>
             <th>
               <input
                 pInputText
-                type="text"
-                (input)="onSearch($event, 'price')"
+                type="number"
+                [(ngModel)]="price"
+                (input)="onSearch()"
                 placeholder="Search by Price"
               />
             </th>
             <th>
               <input
                 pInputText
-                type="text"
-                (input)="onSearch($event, 'quantity')"
+                type="number"
+                [(ngModel)]="quantity"
+                (input)="onSearch()"
                 placeholder="Search by Quantity"
               />
             </th>
@@ -72,8 +55,7 @@
             <th>Quantity</th>
           </tr>
         </ng-template>
-    
-        <!-- Table Body -->
+  
         <ng-template pTemplate="body" let-book>
           <tr>
             <td>{{ book.title }}</td>
@@ -84,5 +66,5 @@
         </ng-template>
       </p-table>
     </section>
-    
-</section>
+  </section>
+  

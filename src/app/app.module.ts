@@ -14,6 +14,7 @@ import { HTTP_INTERCEPTORS, provideHttpClient } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/interceptor';
 import {NgOptimizedImage} from "@angular/common";
 import { TableModule } from 'primeng/table';
+import { TableComponent } from './table/table.component';
 
 @NgModule({
     declarations: [
@@ -22,6 +23,7 @@ import { TableModule } from 'primeng/table';
         FooterComponent,
         ErrorComponent,
         ModalComponent,
+        TableComponent,
     ],
     imports: [
         BrowserModule,

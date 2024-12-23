@@ -19,7 +19,7 @@ export class BookService {
     let params = new HttpParams();
 
     if (title) params = params.set('title', title);
-    if (author) params = params.set('category', author);
+    if (author) params = params.set('author', author);
     if (price) params = params.set('price', price);
     if (quantity) params = params.set('quantity', quantity);
 
